@@ -2,43 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>YouTube Fullscreen Overlay</title>
+  <title>YouTube Fullscreen</title>
   <style>
-    /* Make sure the page and body take full height and have no margin */
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
+      margin: 0; padding: 0; height: 100%; overflow: hidden;
       background: transparent;
-      overflow: hidden;
-    }
-    /* Wrapper to hold iframe filling the viewport */
-    .video-wrapper {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none; /* So clicks pass through if you want */
-      background: transparent;
-      z-index: 9999;
     }
     iframe {
-      width: 100%;
-      height: 100%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw; /* 16:9 aspect ratio */
+      min-height: 100vh;
+      min-width: 177.77vh; /* 16:9 ratio scaled by height */
+      transform: translate(-50%, -50%);
       border: none;
       background: transparent;
     }
   </style>
 </head>
 <body>
-  <div class="video-wrapper">
-    <iframe 
-      src="https://www.youtube.com/embed/bcF_y4NZs9U?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      frameborder="0"
-      scrolling="no"
-      ></iframe>
-  </div>
+  <iframe
+    src="https://www.youtube.com/embed/bcF_y4NZs9U?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+  ></iframe>
 </body>
 </html>
