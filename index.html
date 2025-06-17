@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Cropped View</title>
+  <style>
+    .crop-wrapper {
+      width: 400px; /* Final visible area */
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid #000;
+    }
+
+    .youtube-iframe {
+      position: absolute;
+      top: -300px; /* Shift up to show only desired section */
+      left: -100px; /* Shift left if needed */
+      transform: scale(1.2); /* Zoom in if needed */
+      width: 1280px;
+      height: 720px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="crop-wrapper">
+    <iframe
+      class="youtube-iframe"
+      src="https://www.youtube.com/embed/bcF_y4NZs9U?autoplay=1&mute=1"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+</body>
+</html>
