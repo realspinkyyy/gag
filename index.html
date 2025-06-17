@@ -1,36 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>YouTube Cropped View</title>
+  <meta charset="UTF-8" />
+  <title>YouTube Fullscreen Overlay</title>
   <style>
-    .crop-wrapper {
-      width: 400px; /* Final visible area */
-      height: 200px;
+    /* Make sure the page and body take full height and have no margin */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: transparent;
       overflow: hidden;
-      position: relative;
-      border: 2px solid #000;
     }
-
-    .youtube-iframe {
-      position: absolute;
-      top: -300px; /* Shift up to show only desired section */
-      left: -100px; /* Shift left if needed */
-      transform: scale(1.2); /* Zoom in if needed */
-      width: 1280px;
-      height: 720px;
+    /* Wrapper to hold iframe filling the viewport */
+    .video-wrapper {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* So clicks pass through if you want */
+      background: transparent;
+      z-index: 9999;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
       border: none;
+      background: transparent;
     }
   </style>
 </head>
 <body>
-
-  <div class="crop-wrapper">
-    <iframe
-      class="youtube-iframe"
-      src="https://www.youtube.com/embed/bcF_y4NZs9U?autoplay=1&mute=1"
+  <div class="video-wrapper">
+    <iframe 
+      src="https://www.youtube.com/embed/bcF_y4NZs9U?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3"
+      allow="autoplay; encrypted-media"
       allowfullscreen
-    ></iframe>
+      frameborder="0"
+      scrolling="no"
+      ></iframe>
   </div>
-
 </body>
 </html>
